@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 header {
     background-color: beige;
     padding: 1rem;
@@ -15,6 +19,7 @@ header {
     background-size: cover;
     background-position-y: bottom;
     position: relative;
+    margin-bottom: 20px;
 }
 
 #snail {
@@ -22,6 +27,38 @@ header {
     top: 160px;
     width: 50px;
     transform: scaleX(-1);
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+.crono {
+    width: 50%;
+}
+
+.crono h3 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.timer {
+    font-size: 50px;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    padding: 10px;
+}
+
+.times {
+    width: 50%;
 }
 
 
