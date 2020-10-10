@@ -38,7 +38,7 @@ function PrintMiliseconds() {
 }
 
 function PrintSeconds() {
-    if(miliseconds === 99) {
+    if(miliseconds === 300) {
         miliseconds = 0;
         seconds++;
         if(seconds < 10) {
