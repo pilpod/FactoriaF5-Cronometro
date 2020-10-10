@@ -27,6 +27,7 @@ header {
     top: 160px;
     width: 50px;
     transform: scaleX(-1);
+    cursor: grabbing;
 }
 
 .container {
@@ -59,6 +60,10 @@ header {
 
 .times {
     width: 50%;
+}
+
+#timesList {
+    list-style: none;
 }
 
 
