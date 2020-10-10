@@ -8,9 +8,9 @@ const minutsSpan = document.getElementById('minuts');
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 const resetButton = document.getElementById('reset');
-const difficultyEasy = document.getElementById('dificultyEasy');
-const difficultyNormal = document.getElementById('dificultyNormal');
-const difficultyImpossible = document.getElementById('dificultyImpossible');
+const difficultyEasy = document.getElementById('difficultyEasy');
+const difficultyNormal = document.getElementById('difficultyNormal');
+const difficultyImpossible = document.getElementById('difficultyImpossible');
 
 let miliseconds = 0;
 let seconds = 0;
@@ -62,8 +62,10 @@ function PrintMinuts() {
 }
 
 function StartGame() {
-    movement = setInterval(SnailMovement, velocity);
-    chronometer = setInterval(Timer, 1);
+    if(velocity != undefined){
+        movement = setInterval(SnailMovement, velocity);
+        chronometer = setInterval(Timer, 1);
+    }
 }
 
 function StopGame(){
@@ -81,8 +83,6 @@ function ResetGame(){
     minuts = 0;
 
     snail.style.left = '0px';
-
-    velocity = 0;
 }
 
 function SnailCatched(){
@@ -107,16 +107,32 @@ function AddTimeInTimeList(){
 }
 
 function SetDifficulty(level){
+    ChangeButtonColor(level);
+
     velocity = 1000 / level;
     return velocity;
 }
 
-snail.addEventListener('click', SnailCatched);
+function ChangeButtonColor(level){
+    if(level == 1){
+        difficultyEasy.style.backgroundColor = 'green';
+        difficultyNormal.style.backgroundColor = '';
+        difficultyImpossible.style.backgroundColor = '';
+    } else if(level == 2){
+        difficultyNormal.style.backgroundColor = 'green';
+        difficultyEasy.style.backgroundColor = '';
+        difficultyImpossible.style.backgroundColor = '';
+    } else {
+        difficultyImpossible.style.backgroundColor = 'red';
+        difficultyEasy.style.backgroundColor = '';
+        difficultyNormal.style.backgroundColor = '';
+    }
+}
 
+snail.addEventListener('click', SnailCatched);
 startButton.addEventListener('click', StartGame);
 stopButton.addEventListener('click', StopGame);
 resetButton.addEventListener('click', ResetGame);
-
 
 
 
